@@ -1,0 +1,13 @@
+*.DS_Store
+*.swp
+*~
+*.ipynb_checkpoints
+*.aux
+*.out
+*.log
+*.toc
+*.o
+Хайрер, Нёрсетт, Ваннер.PDF
+Бахвалов.pdf
+Задачник.pdf
+graph.ipynb
