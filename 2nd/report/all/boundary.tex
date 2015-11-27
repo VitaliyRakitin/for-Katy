@@ -1,0 +1,155 @@
+
+\section{Краевая задача}
+Ко всему вышесказанному добавим, что 
+\[
+\int\limits_{0}^{1} x dt = 1.
+\]
+Введём обозначение
+\[
+\phi(t) = \int\limits_{0}^{t} x(\tau) d\tau, \quad \text{а так же } \lambda_1 = a;
+\]
+тогда 
+\begin{equation}\label{dopeqq}
+\begin{cases}
+\phi(0) = 0,\\ 
+\dot\phi = x;\\
+\phi(1) = 1;
+\end{cases}
+\end{equation}
+
+Таким образом, на основе принципа максимума Понтрягина задача оптимального управления~(\ref{formtask}) сводится к~краевой задаче~(\ref{finaltask}). 
+
+\begin{eqnarray}\label{finaltask}
+	\begin{cases}
+	\dot{x} = y; \\
+	\dot{y} = p_y (1 + \alpha t^4);\\ %т.к. \dot{y} = u
+	\dot{p}_x = a; \\ % = \lambda_1 
+	\dot{p}_y = - p_x;\\
+	\dot\phi = x;\\
+	\dot{a} = 0.
+	\end{cases}
+\end{eqnarray}
+\begin{align*}
+	x(0) &= 0,  & y(0) &= 1, & \phi(0) &= 0;\\
+ 	y(1) &= 0, & p_x(1) &= 0. & \phi(1) &= 1;\\
+ 	\end{align*}
+\[
+ 	\alpha = \{0.0;\quad 0.1; \quad 1.0; \quad 10.0\}.
+\]
+\section{Аналитическое решение краевой задачи}
+Полученная краевая задача решается аналитически.
+\begin{enumerate}
+\item невооружённым глазом видно, что последнее уравнение очень простое, поэтому
+\[
+\dot{a} = 0 \quad \Rightarrow \quad
+a = C_1, \quad \text{где } C_1 =  \mathrm{const}.
+\]
+
+\item далее из уравнения $\dot{p}_x = a = C_1$ следует, что 
+\[
+p_x = C_1 t + C_2, \qquad
+\text{где } C_2 = \mathrm{const}.
+\]
+Так же из краевых условий видим, что
+\[
+p_x(1) = 0 \quad \Rightarrow \quad
+0 = C_1 + C_2, \qquad
+C_2 = -C_1.
+\]
+
+\item из уравнения 
+\[
+\dot{p}_y = - p_x = C_1 t - C_1,
+\]
+ получим, что 
+ \[
+ p_y = \frac{1}{2} C_1 t^2 - C_1 t + C_3,
+ \qquad 
+\text{где } C_3 = \mathrm{const}.
+\]
+\item теперь рассмотрим уравнение 
+\[
+\dot{y} = p_y (1 + \alpha t^4) =  \left(\frac{1}{2} C_1 t^2 - C_1 t + C_3 \right) (1 + \alpha t^4),
+\]
+ из которого не сложно получить
+\[
+y =
+\frac{1}{2} \left(\frac{1}{7} \alpha  C_1 t^7 - \frac{1}{3} \alpha  C_1 t^6+\frac{2}{5} \alpha  C_3 t^5+\frac{1}{3}C_1 t^3 - C_1 t^2+2 C_3 t\right)+C_4, 
+\qquad \text{где } C_4 = \mathrm{const}.
+\]
+Из краевых условий
+\[ y(0) = 1,\quad y(1) = 0 
+\]
+следует
+\begin{eqnarray}
+1 &=& C_4, \notag \\
+0 &=& \frac{1}{7} \alpha  C_1 - \frac{1}{3} \alpha  C_1 +\frac{2}{5} \alpha  C_3 + \frac{1}{3}C_1  - C_1 +2 C_3  \notag
+\end{eqnarray}
+Значит
+\[
+C_3 =  \frac{5 (2 \alpha +7) c_1}{21 (\alpha +5)}
+\]
+\item из уравнения 
+\[
+\dot{x} = y = \frac{1}{2} \left(\frac{1}{7} \alpha  C_1 t^7-\frac{1}{3} \alpha  C_1 t^6+\frac{2 \alpha  (2 \alpha +7) C_1 t^5}{21 (\alpha +5)}+\frac{C_1 t^3}{3}-C_1 t^2+\frac{10 (2 \alpha +7) C_1 t}{21 (\alpha +5)}\right) + 1
+\]
+следует
+\begin{multline}
+x =
+\frac{1}{42 (\alpha +5)} \Bigg(\frac{3}{8} \alpha ^2 C_1 t^8+\frac{15}{8} \alpha  C_1 t^8-\alpha ^2 C_1 t^7-5 \alpha  C_1 t^7+\frac{2}{3} \alpha ^2 C_1 t^6
++ \frac{7}{3} \alpha  C_1 t^6+\frac{7}{4} \alpha  C_1 t^4+\\ +\frac{35 C_1 t^4}{4}-7 \alpha  C_1 t^3-35 C_1 t^3+10 \alpha  C_1 t^2+35 C_1 t^2+42 \alpha  t+210 t \Bigg)+C_5. \notag
+\end{multline}
+Из краевых условий видно
+\[
+x(0) = 0
+\quad \Rightarrow \quad
+C_5 = 0
+\]
+\item И наконец рассмотрим последнее уравнение $\dot\phi = x$
+
+\begin{multline}
+\phi = \frac{1}{1008 (\alpha +5)} \Bigg(\alpha  (\alpha +5) C_1 t^9-3 \alpha  (\alpha +5) C_1 t^8+\frac{8}{7} \alpha  (2 \alpha +7) C_1 t^7
++ \frac{42}{5} (\alpha +5) C_1 t^5-\\ -42 (\alpha +5) C_1 t^4+40 (2 \alpha +7) C_1 t^3+504 (\alpha +5) t^2 \Bigg)
++C_6. \notag
+\end{multline}
+Из краевых условий, в свою очередь, получим явные выражения для $C_1$ и $C_6$.
+\[ \phi(0) = 0,\quad \phi(1) = 1, 
+\]
+поэтому
+\begin{eqnarray}
+C_6 &=& 0, \notag \\
+C_1 &=& \frac{8820 (\alpha +5)}{5 \alpha ^2+777 \alpha +1960} \notag
+\end{eqnarray}
+\end{enumerate}
+Из вышесказанного следует, что решением нашей системы будет следующим
+
+\[
+\begin{cases}
+a(t) = -\frac{8820 (\alpha +5)}{5 \alpha ^2+777 \alpha +1960},
+\\
+px(t) =  -\frac{8820}{5 \alpha ^2+777 \alpha +1960} (-\alpha +\alpha  t+5 t-5),
+\\
+py(t) = \frac{210}{5 \alpha ^2+777 \alpha +1960} \left(20 \alpha +21 \alpha  t^2+105 t^2-42 \alpha  t-210 t+70\right),
+\\
+y(t) = \frac{1}{5 \alpha ^2+777 \alpha +1960} \big(5 \alpha ^2+777 \alpha +630 \alpha ^2 t^7+3150 \alpha  t^7-1470 \alpha ^2 t^6-7350 \alpha  t^6+840 \alpha ^2 t^5+\\
++2940 \alpha  t^5+1470 \alpha  t^3+7350 t^3-4410 \alpha  t^2-22050 t^2+4200 \alpha  t+14700 t+1960 \big),
+\\
+x(t) = \frac{1}{4 \left(5 \alpha ^2+777 \alpha +1960\right)} \big(315 \alpha ^2 t^8+1575 \alpha  t^8-840 \alpha ^2 t^7-4200 \alpha  t^7+560 \alpha ^2 t^6+1960 \alpha  t^6+\\
++ 1470 \alpha  t^4+7350 t^4-5880 \alpha  t^3-29400 t^3+8400 \alpha  t^2+29400 t^2+20 \alpha ^2 t+3108 \alpha  t+7840 t \big),
+\\
+\phi (t) = \frac{1}{4 \left(5 \alpha ^2+777 \alpha +1960\right)} \big(35 \alpha ^2 t^9+175 \alpha  t^9-105 \alpha ^2 t^8-525 \alpha  t^8+80 \alpha ^2 t^7+280 \alpha  t^7+294 \alpha  t^5+\\
++1470 t^5-1470 \alpha  t^4-7350 t^4+2800 \alpha  t^3+9800 t^3+10 \alpha ^2 t^2+1554 \alpha  t^2+3920 t^2 \big)
+\end{cases}
+\]
+
+Так же, при $alpha = 0$:
+\[
+\begin{cases}
+a(t) = -30,\\
+\text{px}(t)= -30 (t-1),\\
+\text{py}(t)= 3 \left(5 t^2-10 t+3\right),\\
+x(t)= \frac{1}{4} \left(5 t^4-20 t^3+18 t^2+4 t\right),\\
+y(t)= 5 t^3-15 t^2+9 t+1,\\
+\phi (t)= \frac{1}{4} \left(t^5-5 t^4+6 t^3+2 t^2\right)
+\end{cases}
+\]
